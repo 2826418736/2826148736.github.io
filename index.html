@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>纪念一周年</title>
+	<link rel="stylesheet" type="text/css" href="./jscss/style.css">
+	<script type="text/javascript" src="./jscss/jquery.js"></script>
+		<!-- 图片幻灯片效果-->
+		<script type="text/javascript" src="./jscss/roundabout.js"></script>
+		<script type="text/javascript" src="./jscss/roundabout_shapes.js"></script>
+		<script type="text/javascript" src="./jscss/gallery_init.js"></script>
+		<!-- 下雪-->
+		<script type="text/javascript" src="./jscss/snowstorm.js"></script>
+		<!-- 打字机效果-->		
+		<script type="text/javascript" src="./jscss/text.js"></script>
+		<!-- 画爱心-->
+		<script type="text/javascript" src="./jscss/ga.js" async=""></script>
+		<script type="text/javascript" src="./jscss/heart.js"></script>
+		<!-- 移动div-->
+		<script type="text/javascript" src="./jscss/move.js"></script>
+		<!-- 显示时间 -->
+		<script type="text/javascript" src="./jscss/time.js"></script>
+		
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		.container{
+			width: 300px;
+			height: 300px;
+			/*border: 1px solid #000;*/
+			margin: 150px auto;
+			perspective: 2000000px;
+			animation: fade 4s ease-in 12s;
+			animation-fill-mode: forwards;
+			
+		}
+		@keyframes fade{
+			0%{
+				opacity: 1;
+				display: all;
+			}
+			50%{
+				opacity: 0.5;
+				display: all;
+			}
+			100%{
+				opacity: 0;
+				display: none;
+			}
+		}
+		.box{
+			width:300px;
+			height:300px;
+			/*contral child*/
+			transform-style: preserve-3d;
+			/*transform: rotateX(45deg) rotateY(45deg);*/
+			animation: rotate 4s linear infinite;
+
+		}
+		
+		@keyframes rotate{
+			0%{
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			100%{
+				transform: rotateX(360deg) rotateY(360deg);
+			}
+
+		}
+		.box-page{
+			width: 300px;
+			height: 300px;
+			/*位置*/
+			position: absolute;
+			transform-style: preserve-3d;
+		}
+		.top{
+			/*background-color: black;*/
+			transform: translateZ(150px);
+		}
+		.bottom{
+			/*background-color: blue;*/
+			transform: translateZ(-150px) rotateX(180deg);
+		}
+		.left{
+			/*background-color: pink;*/
+			transform: translateX(-150px) rotateY(-90deg);
+		}
+		.right{
+			/*background-color: red;*/
+			transform: translateX(150px) rotateY(90deg);
+		}
+		.before{
+			/*background-color: yellow;*/
+			transform: translateY(150px) rotateX(-90deg);
+		}
+		.after{
+			/*background-color: orange;*/
+			transform: translateY(-150px) rotateX(90deg);
+		}
+		@keyframes r1{
+			0%{
+				transform:  scale(1) rotateZ(0deg) rotateX(0deg) ;
+			}
+			20%{
+				transform:  scale(0) rotateZ(720deg) rotateX(720deg) ;
+			}
+			90%{
+				transform:  scale(0) rotateZ(720deg) rotateX(720deg) ;
+			}
+
+			100%{
+				transform:  scale(1) rotateZ(0deg) rotateX(0deg) );
+			}
+		}
+		.box-page div:nth-child(1){
+			animation: r1 6s ease-in ;
+		}
+		.box-page div:nth-child(2){
+			animation: r1 6s ease-in 0.5s;
+		}
+		.box-page div:nth-child(3){
+			animation: r1 6s ease-in 1s;
+		}
+		.box-page div:nth-child(4){
+			animation: r1 6s ease-in 1.5s;
+		}
+		.box-page div:nth-child(5){
+			animation: r1 6s ease-in 2s;
+		}
+		.box-page div:nth-child(6){
+			animation: r1 6s ease-in 2.5s;
+		}
+		.box-page div:nth-child(7){
+			animation: r1 6s ease-in 3s;
+		}
+		.box-page div:nth-child(8){
+			animation: r1 6s ease-in 3.5s;
+		}
+		.box-page div:nth-child(9){
+			animation: r1 6s ease-in 4s;
+		}
+		#bc{
+			width: 50px;height: 50px;margin:10px auto;
+			animation: ht 35s linear ;
+		}
+		@keyframes ht{
+			0%{
+				opacity: 0; scale:0; display: none;
+			}
+			60%{
+				opacity: 0; scale:0; display: none;
+			}
+			100%{
+				opacity: 1; scale:1; display: all;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- <bgsound src="sound/1.mp3" autostart="ture" loop="infinite "> -->
+	<embed src="sound/大宝.mp3" width="0" height="0" border="0" loop="ture"></embed>
+	<div>
+		<div class="container">
+			<div class="box">
+				<div class="box-page top"></div>
+				<div class="box-page bottom"></div>
+				<div class="box-page left"></div>
+				<div class="box-page right"></div>
+				<div class="box-page before"></div>
+				<div class="box-page after"></div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript">
+		var arr = document.querySelectorAll(".box-page");
+		// document.write(arr.length);
+		// 遍历
+		for(var n=0; n<arr.length; n++)
+		{
+			// outcycle
+			for(var i=0; i<3; i++)
+			{
+				// incycle
+				for(var j=0; j<3; j++){
+					var divs = document.createElement("div");
+					divs.style.cssText = "width:100px;height: 100px; border:1px solid #ccc; box-sizing: border-box; position: absolute; background-image: url(img/a"+n+".jpg); background-size: 300px 300px;";
+					arr[n].appendChild(divs);
+					divs.style.left = j*100 + "px";
+					divs.style.top = i*100 + "px";
+					divs.style.backgroundPositionX = -j*100 + "px";
+					divs.style.backgroundPositionY = -i*100 + "px";
+				}
+			}
+		}
+	</script>
+	<script type="text/javascript">
+			setTimeout(makesnake, 42000);
+	</script>
+
+	<!-- #myContent -->
+		<div id="myContent">
+				<span id="blink" style="display: none;">_</span></div>
+		<div id="contentToWrite" style="display:none">
+			人们都说      <br>
+			<br>
+				“春天应该暗恋一个人，    <br>
+				<br>
+				然后夏天和她私奔。”         <br>
+				<br>
+				如今<br>
+				<br>
+				我喜欢你已经过了四季，<br>
+				<br>
+				你说<br>
+				<br>
+				我们是不是该谈一谈余生了？<br>
+				
+				
+				<br>
+				-----------------------我爱你，傻熊<br>
+		</div>
+		<script type="text/javascript">
+			writeContent(true);
+		</script>
+
+	<!-- #container -->
+		<div id="container">
+			<ul id="myRoundabout" class="roundabout-holder" style="padding: 0px; position: relative; z-index: 100;">
+		  	<li class="roundabout-moveable-item roundabout-in-focus" current-scale="1.0000" style="position: absolute; left: 122px; top: 87px; width: 350px; height: 200px; opacity: 1; z-index: 400; font-size: 16px;"><img src="./img/a7.jpg" alt=""></li>
+			<li class="roundabout-moveable-item" current-scale="0.7927" style="position: absolute; left: -0.4px; top: 110px; width: 277.445px; height: 175.9794px; opacity: 1; z-index: 296; font-size: 12.68px;"><img src="./img/a8.jpg" alt=""></li>
+			<li class="roundabout-moveable-item" current-scale="0.4573" style="position: absolute; left: 473.8px; top: 147.2px; width: 160.055px; height: 101.5206px; opacity: 1; z-index: 129; font-size: 7.32px;"><img src="./img/b3.jpg" alt=""></li>
+			<li class="roundabout-moveable-item" current-scale="0.4573" style="position: absolute; left: -39.8px; top: 147.2px; width: 160.055px; height: 101.5206px; opacity: 1; z-index: 129; font-size: 7.32px;"><img src="./img/b2.jpg" alt=""></li>
+			<li class="roundabout-moveable-item" current-scale="0.7927" style="position: absolute; left: 317px; top: 110px; width: 277.445px; height: 175.9794px; opacity: 1; z-index: 296; font-size: 12.68px;"><img src="./img/a9 (1).jpg" alt=""></li>
+		  </ul>
+		</div>
+		<script type="text/javascript">
+			setTimeout(move, 15000);
+		</script>
+		<div id="bc">
+			<a href="rear.html" onclick="show()"><img src="img/b4.gif" width="40px" height="40px" alt="fault"></img></a>
+		</div>
+		<script type="text/javascript">
+			function show()
+			{
+				alert("你发现了小秘密哦");
+			}
+		</script>
+</body>
+</html>
