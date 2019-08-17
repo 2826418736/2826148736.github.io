@@ -1,0 +1,104 @@
+*{
+			margin:0;
+			padding: 0;
+		}
+		.container{
+			width: 300px;
+			height: 300px;
+			/*border: 1px solid #000;*/
+			margin: 150px auto;
+			perspective: 2000000px;
+			
+		}
+		.box{
+			width:300px;
+			height:300px;
+			/*contral child*/
+			transform-style: preserve-3d;
+			/*transform: rotateX(45deg) rotateY(45deg);*/
+			animation: rotate 4s linear infinite;
+
+		}
+		
+		@keyframes rotate{
+			0%{
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			100%{
+				transform: rotateX(360deg) rotateY(360deg);
+			}
+
+		}
+		.box-page{
+			width: 300px;
+			height: 300px;
+			/*位置*/
+			position: absolute;
+			transform-style: preserve-3d;
+		}
+		.top{
+			/*background-color: black;*/
+			transform: translateZ(150px);
+		}
+		.bottom{
+			/*background-color: blue;*/
+			transform: translateZ(-150px) rotateX(180deg);
+		}
+		.left{
+			/*background-color: pink;*/
+			transform: translateX(-150px) rotateY(-90deg);
+		}
+		.right{
+			/*background-color: red;*/
+			transform: translateX(150px) rotateY(90deg);
+		}
+		.before{
+			/*background-color: yellow;*/
+			transform: translateY(150px) rotateX(-90deg);
+		}
+		.after{
+			/*background-color: orange;*/
+			transform: translateY(-150px) rotateX(90deg);
+		}
+		@keyframes r1{
+			0%{
+				transform:  scale(1) rotateZ(0deg) rotateX(0deg) ;
+			}
+			20%{
+				transform:  scale(0) rotateZ(720deg) rotateX(720deg) ;
+			}
+			90%{
+				transform:  scale(0) rotateZ(720deg) rotateX(720deg) ;
+			}
+
+			100%{
+				transform:  scale(1) rotateZ(0deg) rotateX(0deg) );
+			}
+		}
+		.box-page div:nth-child(1){
+			animation: r1 6s ease-in ;
+		}
+		.box-page div:nth-child(2){
+			animation: r1 6s ease-in 0.5s;
+		}
+		.box-page div:nth-child(3){
+			animation: r1 6s ease-in 1s;
+		}
+		.box-page div:nth-child(4){
+			animation: r1 6s ease-in 1.5s;
+		}
+		.box-page div:nth-child(5){
+			animation: r1 6s ease-in 2s;
+		}
+		.box-page div:nth-child(6){
+			animation: r1 6s ease-in 2.5s;
+		}
+		.box-page div:nth-child(7){
+			animation: r1 6s ease-in 3s;
+		}
+		.box-page div:nth-child(8){
+			animation: r1 6s ease-in 3.5s;
+		}
+		.box-page div:nth-child(9){
+			animation: r1 6s ease-in 4s;
+		}
